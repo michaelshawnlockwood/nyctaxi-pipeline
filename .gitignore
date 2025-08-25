@@ -1,0 +1,49 @@
+# ---------------------
+# Python
+# ---------------------
+venv/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment metadata
+*.env
+.env/
+
+# Dependencies
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+*.egg
+
+# ---------------------
+# Data files
+# ---------------------
+data/
+data_in/
+data_out/
+*.parquet
+*.csv
+*.psv
+*.tsv
+*.log
+*.bak
+*.tmp
+
+# Keep small curated samples (if needed)
+!samples/*.csv
+!samples/*.psv
+
+# ---------------------
+# Editors / IDEs
+# ---------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS junk
+.DS_Store
+Thumbs.db
