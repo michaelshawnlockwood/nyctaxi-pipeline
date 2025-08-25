@@ -1,0 +1,17 @@
+{
+  "name": "nyctaxi-pipeline",
+  "type": "folder",
+  "children": [
+    { "name": "python", "type": "folder", "note": "ETL & validation" },
+    { "name": "sql", "type": "folder", "note": "SQL Server & PostgreSQL" },
+    { "name": "airflow", "type": "folder", "note": "DAGs & schedules" },
+    { "name": "docs", "type": "folder", "note": "notes & guides" },
+    { "name": "samples", "type": "folder", "note": "tiny test data" },
+    { "name": "data", "type": "ignored", "note": "raw" },
+    { "name": "data_in", "type": "ignored", "note": "staging" },
+    { "name": "data_out", "type": "ignored", "note": "processed" },
+    { "name": "README.md", "type": "file" },
+    { "name": ".gitignore", "type": "file" },
+    { "name": "requirements.txt", "type": "file" }
+  ]
+}
