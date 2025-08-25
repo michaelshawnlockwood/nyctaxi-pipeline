@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="860" viewBox="0 0 580 860" role="img">
+<style>text{dominant-baseline:middle}</style>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="290.0" y="28" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="20" font-weight="700" fill="#0f172a" text-anchor="middle" dominant-baseline="middle">nyctaxi-pipeline: repository structure</text>
+<text x="290.0" y="52" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle" dominant-baseline="middle">Folders, files, and ignored dirs</text>
+<text x="40" y="72" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="16" font-weight="700" fill="#0f172a" text-anchor="start" dominant-baseline="middle">nyctaxi-pipeline/</text>
+<rect x="68" y="100" width="220" height="44" rx="10" fill="#eef2ff" stroke="#0f172a"/>
+<text x="80" y="122.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">python</text>
+<text x="300" y="122.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="12" font-weight="400" fill="#64748b" text-anchor="start" dominant-baseline="middle">ETL &amp; validation</text>
+<rect x="68" y="160" width="220" height="44" rx="10" fill="#eef2ff" stroke="#0f172a"/>
+<text x="80" y="182.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">sql</text>
+<text x="300" y="182.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="12" font-weight="400" fill="#64748b" text-anchor="start" dominant-baseline="middle">SQL Server &amp; PostgreSQL</text>
+<rect x="68" y="220" width="220" height="44" rx="10" fill="#eef2ff" stroke="#0f172a"/>
+<text x="80" y="242.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">airflow</text>
+<text x="300" y="242.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="12" font-weight="400" fill="#64748b" text-anchor="start" dominant-baseline="middle">DAGs &amp; schedules</text>
+<rect x="68" y="280" width="220" height="44" rx="10" fill="#eef2ff" stroke="#0f172a"/>
+<text x="80" y="302.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">docs</text>
+<text x="300" y="302.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="12" font-weight="400" fill="#64748b" text-anchor="start" dominant-baseline="middle">notes &amp; guides</text>
+<rect x="68" y="340" width="220" height="44" rx="10" fill="#eef2ff" stroke="#0f172a"/>
+<text x="80" y="362.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">samples</text>
+<text x="300" y="362.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="12" font-weight="400" fill="#64748b" text-anchor="start" dominant-baseline="middle">tiny test data</text>
+<rect x="68" y="400" width="220" height="44" rx="10" fill="#e2e8f0" stroke="#0f172a" stroke-dasharray="4 3"/>
+<text x="80" y="422.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">data</text>
+<text x="300" y="422.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="12" font-weight="400" fill="#64748b" text-anchor="start" dominant-baseline="middle">raw</text>
+<rect x="238" y="410" width="44" height="18" rx="9" fill="#1f2937"/>
+<text x="260" y="419" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">IGN</text>
+<rect x="68" y="460" width="220" height="44" rx="10" fill="#e2e8f0" stroke="#0f172a" stroke-dasharray="4 3"/>
+<text x="80" y="482.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">data_in</text>
+<text x="300" y="482.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="12" font-weight="400" fill="#64748b" text-anchor="start" dominant-baseline="middle">staging</text>
+<rect x="238" y="470" width="44" height="18" rx="9" fill="#1f2937"/>
+<text x="260" y="479" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">IGN</text>
+<rect x="68" y="520" width="220" height="44" rx="10" fill="#e2e8f0" stroke="#0f172a" stroke-dasharray="4 3"/>
+<text x="80" y="542.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">data_out</text>
+<text x="300" y="542.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="12" font-weight="400" fill="#64748b" text-anchor="start" dominant-baseline="middle">processed</text>
+<rect x="238" y="530" width="44" height="18" rx="9" fill="#1f2937"/>
+<text x="260" y="539" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="middle">IGN</text>
+<rect x="68" y="580" width="220" height="44" rx="10" fill="#f8fafc" stroke="#0f172a"/>
+<text x="80" y="602.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">README.md</text>
+<rect x="68" y="640" width="220" height="44" rx="10" fill="#f8fafc" stroke="#0f172a"/>
+<text x="80" y="662.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">.gitignore</text>
+<rect x="68" y="700" width="220" height="44" rx="10" fill="#f8fafc" stroke="#0f172a"/>
+<text x="80" y="722.0" font-family="ui-sans-serif,system-ui,Segoe UI,Roboto,Arial" font-size="14" font-weight="600" fill="#0f172a" text-anchor="start" dominant-baseline="middle">requirements.txt</text>
+</svg>
