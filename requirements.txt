@@ -1,0 +1,15 @@
+# Core data tools
+pandas>=2.2
+pyarrow>=15.0
+duckdb>=1.1.0
+
+# Database connectivity
+sqlalchemy>=2.0
+psycopg2-binary>=2.9      # PostgreSQL driver
+pyodbc>=5.0               # SQL Server driver (requires ODBC installed)
+
+# Orchestration (optional, for later)
+apache-airflow>=2.10
+
+# Utilities
+python-dotenv>=1.0        # manage environment variables

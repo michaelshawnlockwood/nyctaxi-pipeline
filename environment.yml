@@ -1,0 +1,29 @@
+name: nyctaxi-pipeline
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # Core Python
+  - python=3.13
+
+  # Data tools
+  - pandas>=2.2
+  - pyarrow>=15.0
+  - duckdb>=1.1.0
+
+  # Database connectivity
+  - sqlalchemy>=2.0
+  - psycopg2>=2.9        # PostgreSQL
+  - pyodbc>=5.0          # SQL Server (needs ODBC installed)
+
+  # Orchestration
+  - apache-airflow>=2.10
+
+  # Utilities
+  - python-dotenv>=1.0
+
+  # pip section (if you need pip-only extras later)
+  - pip
+  - pip:
+      # - some-pip-only-package
+      []
