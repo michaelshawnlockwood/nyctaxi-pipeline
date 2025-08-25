@@ -1,8 +1,7 @@
 # NYC Taxi Data Pipeline
 
 ![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
-![SQL Server 2019](https://img.shields.io/badge/SQL%20Server-2019-red?logo=microsoftsqlserver)
-![SQL Server 2022](https://img.shields.io/badge/SQL%20Server-2022-darkred?logo=microsoftsqlserver)
+![SQL Server](https://img.shields.io/badge/SQL%20Server-2019-red?logo=microsoftsqlserver)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-blue?logo=postgresql)
 ![Airflow](https://img.shields.io/badge/Apache%20Airflow-Orchestration-success?logo=apacheairflow)
 ![Databricks](https://img.shields.io/badge/Databricks-Lakehouse-orange?logo=databricks)
