@@ -34,6 +34,17 @@ data_out/**/*.csv
 *.bak
 *.tmp
 
+# raw data
+/data/*.parquet
+/data_in/*.parquet
+/data_in/**/*.parquet
+
+# allow schema/profile/preview artifacts
+!data_in/*_schema.txt
+!data_in/*_profile.csv
+!data_in/*_preview.csv
+!data_in/validation_summary.csv
+
 # Keep curated samples + reports
 !samples/**/*.csv
 !samples/**/*.psv
