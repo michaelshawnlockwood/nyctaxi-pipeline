@@ -25,16 +25,19 @@ data/
 data_in/
 data_out/
 *.parquet
-*.csv
+data/**/*.csv
+data_in/**/*.csv
+data_out/**/*.csv
 *.psv
 *.tsv
 *.log
 *.bak
 *.tmp
 
-# Keep small curated samples (if needed)
-!samples/*.csv
-!samples/*.psv
+# Keep curated samples + reports
+!samples/**/*.csv
+!samples/**/*.psv
+!reports/**/*.csv
 
 # ---------------------
 # Editors / IDEs
