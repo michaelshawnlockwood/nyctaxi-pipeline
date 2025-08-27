@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Run Steps – NYC Taxi Pipeline</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root{
+    --bg:#ffffff;
+    --text:#111827;
+    --muted:#4b5563;
+    --border:#e5e7eb;
+    --codebg:#f6f8fa;
+    --link:#2563eb;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.55}
+  .container{max-width:920px;margin:0 auto;padding:28px 16px}
+  h1{margin:0 0 4px 0;font-size:28px}
+  h2{margin:28px 0 8px;font-size:22px}
+  h3{margin:20px 0 6px;font-size:18px}
+  p{margin:8px 0}
+  hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+  .lead{color:var(--muted)}
+  .card{border:1px solid var(--border);border-radius:10px;padding:16px;margin:16px 0;background:#fff}
+  ul{margin:6px 0 6px 22px}
+  code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace}
+  pre{background:var(--codebg);border:1px solid var(--border);border-radius:8px;padding:12px;overflow:auto}
+  a{color:var(--link);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .small{font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>Run Steps – NYC Taxi Pipeline</h1>
+    <p class="lead">How to validate, convert, and prepare NYC Yellow Taxi trip data for downstream SQL use.</p>
+  </header>
+
+  <section class="card">
+    <h2>Prereqs</h2>
+    <p>Activate venv from repo root:</p>
+    <h3>PowerShell</h3>
+    <pre><code>.\.venv\Scripts\Activate.ps1</code></pre>
+    <h3>Git Bash</h3>
+    <pre><code>source .venv/Scripts/activate</code></pre>
+    <p>Install dependencies:</p>
+    <pre><code>pip install --upgrade pip
+pip install -r requirements.txt</code></pre>
+    <p class="small">Installed: <strong>duckdb</strong>, <strong>pandas</strong>, <strong>pyarrow</strong>, <strong>tabulate</strong> (+ DB drivers for Phase 3)</p>
+  </section>
+
+  <section class="card">
+    <h2>Phase 1 — Validate Input Parquet Files</h2>
+    <p>Validates each <code>.parquet</code> in <code>data_in/</code> and writes:</p>
+    <ul>
+      <li><code>_schema.txt</code> — column order + types</li>
+      <li><code>_profile.csv</code> — null counts, example, min/max (numeric/date)</li>
+      <li><code>_preview.csv</code> — first N rows (default 100)</li>
+      <li><code>validation_summary.csv</code> — one line per file with rows + status</li>
+    </ul>
+
+    <h3>PowerShell</h3>
+    <pre><code># Everything, non-recursive
+python .\validate_parquet_batch.py "D:\AppDev\nyctaxi\nyctaxi-pipeline\data_in"
+
+# Recursive, skip files already validated
+python .\validate_parquet_batch.py "D:\AppDev\nyctaxi\nyctaxi-pipeline\data_in" --recursive --skip-existing
+
+# Subset (example: Feb files)
+python .\validate_parquet_batch.py "D:\AppDev\nyctaxi\nyctaxi-pipeline\data_in" --pattern "yellow_tripdata_2024-02*.parquet"</code></pre>
+
+    <h3>Git Bash</h3>
+    <pre><code>python validate_parquet_batch.py "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_in"
+python validate_parquet_batch.py "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_in" --recursive --skip-existing
+python validate_parquet_batch.py "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_in" --pattern "yellow_tripdata_2024-02*.parquet"</code></pre>
+
+    <h3>Outputs</h3>
+    <ul>
+      <li>Per-file: <code>_schema.txt</code>, <code>_profile.csv</code>, <code>_preview.csv</code></li>
+      <li>Rollup: <code>validation_summary.csv</code></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Phase 2 — Convert Parquet to PSV</h2>
+    <p>Converts <code>.parquet</code> → <code>.psv</code> (pipe-separated). Produces one <code>.psv</code> per input and a rollup summary.</p>
+
+    <h3>PowerShell</h3>
+    <pre><code># Full conversion (overwrite existing files)
+python .\parquet_to_psv.py "D:\AppDev\nyctaxi\nyctaxi-pipeline\data_in" --recursive --out-dir "D:\AppDev\nyctaxi\nyctaxi-pipeline\data_out" --overwrite
+
+# Sample conversion (limit rows, clearly flagged as LIMITED in summary)
+python .\parquet_to_psv.py "D:\AppDev\nyctaxi\nyctaxi-pipeline\data_in" --recursive --limit 50000 --out-dir "D:\AppDev\nyctaxi\nyctaxi-pipeline\data_out" --overwrite</code></pre>
+
+    <h3>Git Bash</h3>
+    <pre><code>python parquet_to_psv.py "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_in" --recursive --out-dir "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_out" --overwrite
+python parquet_to_psv.py "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_in" --recursive --limit 50000 --out-dir "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_out" --overwrite</code></pre>
+
+    <h3>Outputs</h3>
+    <ul>
+      <li><code>.psv</code> per <code>.parquet</code> in <code>data_out/</code></li>
+      <li><code>psv_conversion_summary.csv</code> (columns: <code>file, source_rows, written_rows, limit, status, out</code>)</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Phase 2b — Validate PSV Files</h2>
+    <p>Checks <code>.psv</code> outputs for schema consistency and row counts.</p>
+
+    <h3>PowerShell</h3>
+    <pre><code>python .\validate_psv.py "D:\AppDev\nyctaxi\nyctaxi-pipeline\data_out\yellow_tripdata_2024-01.psv"
+python .\validate_psv_batch.py "D:\AppDev\nyctaxi\nyctaxi-pipeline\data_out" --recursive</code></pre>
+
+    <h3>Git Bash</h3>
+    <pre><code>python validate_psv.py "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_out/yellow_tripdata_2024-01.psv"
+python validate_psv_batch.py "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_out" --recursive</code></pre>
+
+    <h3>Outputs</h3>
+    <ul>
+      <li>Per-file: <code>_schema.txt</code>, <code>_profile.csv</code>, <code>_preview.csv</code></li>
+      <li>Rollup: <code>psv_validation_summary.csv</code></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Phase 2.5 — Generate Unified Data Dictionary</h2>
+    <p>Creates a single authoritative schema file for the dataset. Month suffix dropped from the name.</p>
+
+    <h3>PowerShell</h3>
+    <pre><code>python .\make_data_dictionary.py "D:\AppDev\nyctaxi\nyctaxi-pipeline\data_out"</code></pre>
+
+    <h3>Git Bash</h3>
+    <pre><code>python make_data_dictionary.py "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_out"</code></pre>
+
+    <h3>Outputs</h3>
+    <ul>
+      <li><code>yellow_tripdata.dictionary.csv</code></li>
+      <li><code>yellow_tripdata.dictionary.md</code> <span class="small">(requires <code>tabulate</code>)</span></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Phase 3 — Load to SQL Server / PostgreSQL (Coming Next)</h2>
+    <ul>
+      <li>Generate <code>CREATE TABLE</code> scripts from the dictionary.</li>
+      <li>Bulk load PSV files:
+        <ul>
+          <li><strong>SQL Server</strong> → <code>BULK INSERT</code> or <code>OPENROWSET(BULK ...)</code></li>
+          <li><strong>PostgreSQL</strong> → <code>COPY table FROM STDIN WITH (FORMAT csv, DELIMITER '|', HEADER true)</code></li>
+        </ul>
+      </li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>Tips &amp; Gotchas</h2>
+    <ul>
+      <li><strong>Limited exports</strong>: If PSV validation shows ~50k rows, conversion likely used <code>--limit 50000</code>. Re-run conversion with <code>--overwrite</code> and no <code>--limit</code> for full exports.</li>
+      <li><strong>Venv activation</strong>: Ensure the venv is active before running (<code>(.venv)</code> prefix in prompt).</li>
+      <li><strong>Dry run</strong>: Use <code>--dry-run</code> with <code>parquet_to_psv.py</code> to preview outputs without writing.</li>
+      <li><strong>Dictionary</strong>: The data dictionary intentionally overwrites itself → one file, single source of truth.</li>
+      <li><strong>Path typos</strong>: A leading dot (e.g., <code>.validate_psv.py</code>) will error. Use <code>validate_psv.py</code>.</li>
+      <li><strong>Missing tabulate</strong>: If Markdown output fails, install inside the venv:
+        <pre><code>pip install tabulate</code></pre>
+      </li>
+    </ul>
+  </section>
+
+  <p class="small">© NYC Taxi Trips – Runbook.</p>
+</div>
+</body>
+</html>

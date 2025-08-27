@@ -73,7 +73,6 @@ python parquet_to_psv.py "D:/AppDev/nyctaxi/nyctaxi-pipeline/data_in" --recursiv
 ---
 
 ## Phase 2b — Validate PSV Files
-
 Checks `.psv` outputs for schema consistency and row counts.
 
 **PowerShell**
@@ -108,3 +107,18 @@ Bulk load PSV files:
 SQL Server → BULK INSERT or OPENROWSET(BULK ...)
 PostgreSQL → COPY table FROM STDIN WITH (FORMAT csv, DELIMITER '|', HEADER true)
 
+## Tips & Gotchas
+Limited exports: If PSV validation shows ~50k rows, conversion likely used --limit 50000.
+Re-run conversion with --overwrite and no --limit for full exports.
+
+Venv activation: Ensure the venv is active before running ((.venv) prefix in prompt).
+
+Dry run: Use --dry-run with parquet_to_psv.py to preview outputs without writing.
+
+Dictionary: The data dictionary intentionally overwrites itself → one file, single source of truth.
+
+Path typos: Watch for leading . (e.g., .validate_psv.py will error). Always use validate_psv.py.
+
+Missing tabulate: If Markdown output fails, install inside the venv:
+**bash**
+pip install tabulate
