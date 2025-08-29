@@ -7,10 +7,20 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+# Generated SQL
+/python/sql_out/
+/sql_out/
+
+# Logs
+*.bulk_errors
+/logs/
 
 # Virtual environment metadata
 *.env
 .env/
+/.venv/
+__pycache__/
+*.pyc
 
 # Dependencies
 pip-wheel-metadata/
