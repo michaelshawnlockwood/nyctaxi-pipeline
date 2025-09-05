@@ -1,7 +1,6 @@
 /***************************************************************************
  File: yellow_tripdata_dashboard.sql
  Purpose: Eight analysis queries for dbo.yellow_tripdata (NYC Taxi dataset)
- Author: Generated for nyctaxi project
 ***************************************************************************/
 
 /* 1) Daily Revenue & Trips (+ integrity hash) */
