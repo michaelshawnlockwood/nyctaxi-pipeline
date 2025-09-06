@@ -50,11 +50,18 @@ def build_dictionary(psv_path: Path, out_override: Path | None):
                      getv(prof, f"{col}__max")])
     dd_df = pd.DataFrame(rows, columns=["column", "type", "nulls", "example", "min", "max"])
 
-    # Output base: drop month → yellow_tripdata.dictionary.*
+    # ---- Output naming (fixed) ----
     if out_override:
-        out_base = out_override
+        # If user passed a directory, write <stem>.dictionary.* there.
+        if out_override.is_dir():
+            out_base = out_override / f"{p.stem}.dictionary"
+        else:
+            # Treat as a full base path (no extension expected)
+            out_base = out_override
     else:
-        out_base = p.parent / "yellow_tripdata.dictionary"
+        # Default: next to the input file, using its stem
+        out_base = p.with_suffix("")  # D:\...\mpccpepd
+        out_base = out_base.parent / f"{out_base.name}_dictionary"  # ...\mpccpepd.dictionary
 
     out_csv = out_base.with_suffix(".csv")
     dd_df.to_csv(out_csv, index=False, encoding="utf-8")
@@ -65,29 +72,18 @@ def build_dictionary(psv_path: Path, out_override: Path | None):
         dd_df.to_markdown(out_md, index=False)
         print(f"Data dictionary written:\n- {out_csv}\n- {out_md}")
     except ImportError:
-        print(f"Data dictionary written (CSV only):\n- {out_csv}\n⚠️ Install 'tabulate' to also generate Markdown.")
+        print(f"Data dictionary written (CSV only):\n- {out_csv}\nInstall 'tabulate' to also generate Markdown.")
 
 def main():
-    ap = argparse.ArgumentParser(description="Generate one unified data dictionary from PSV file(s).")
-    ap.add_argument("src", help="Path to a PSV file OR folder containing PSV files")
-    ap.add_argument("--pattern", default="*.psv", help="Glob when src is folder (default: *.psv)")
-    ap.add_argument("--recursive", action="store_true", help="Recurse into subfolders when src is a folder")
-    ap.add_argument("--out", help="Override output file base (omit extension)")
+    ap = argparse.ArgumentParser(description="Generate a unified data dictionary from a PSV file.")
+    ap.add_argument("src", help="Path to a PSV file")
+    ap.add_argument("--out", help="Output base path or directory (omit extension). "
+                                  "Default: <src-stem>.dictionary next to the input file.")
     args = ap.parse_args()
 
-    src_path = Path(args.src).resolve()
-    if not src_path.exists():
-        raise FileNotFoundError(src_path)
-
-    # Resolve file to use
-    if src_path.is_file():
-        psv_file = src_path
-    else:
-        files = sorted(src_path.rglob(args.pattern) if args.recursive else src_path.glob(args.pattern))
-        if not files:
-            print("No PSV files found.")
-            return
-        psv_file = files[0]   # just take the first one
+    psv_file = Path(args.src).resolve()
+    if not psv_file.exists() or not psv_file.is_file():
+        raise FileNotFoundError(psv_file)
 
     out_override = Path(args.out).resolve() if args.out else None
     print(f"Building unified data dictionary from: {psv_file}")
