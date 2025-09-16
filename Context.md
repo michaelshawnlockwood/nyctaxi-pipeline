@@ -87,3 +87,9 @@ Keep this updated at the end of each working session.
 - End-of-chat handoff blocks (✅ Summary / 📌 Context) → paste here.  
 - Backfill from prior chats as needed.  
 - This file = single source of truth across sessions.  
+
+2025-09-16 — WSFC Disk Correlation
+Script: 20250916194500 correlate-cluster-disks.ps1 (requires Windows PowerShell 5.x)
+Verified: Cluster Disk 1→E: SQLData, Disk 2→F: SQLLog, Disk 3→G: SQLBackup (NTFS, 64KB)
+Note: PS7 may not expose DiskIdGuid; use PS5.x for this script.
+
