@@ -101,3 +101,27 @@ Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity
 --- ## Snapshots - **SQLNODE1** - `LastKnownGoodConfig-share-attached` - **SQLNODE2** - [pending] `Baseline-preSQL` - **SQLNODE3** - [pending] `Baseline-preSQL` --- ## Scripts Inventory **Admin / VM Management** - `disable-auto-checkpoints.ps1` – Disable automatic checkpoints for a VM. - `set-processor-count.ps1` – Adjust vCPU count for a VM. - `create-checkpoint.ps1` – Replace/create a named VM checkpoint. - `revert-checkpoint.ps1` – Roll back a VM to a specific checkpoint.
 **Networking / System** - `set-name-n-ip.ps1` – Configure static IP and computer name. - `network-status.ps1` – Check IPs, routes, adapters. - `system-status.ps1` – Check computer name, domain/workgroup, OS build. **Shares / Mapping** - `ensure-share-winvm.ps1` – Ensures host exposes a share and reports UNC path. - `map-share-retry.ps1` – Map SMB shares with retry/timeout logic (needs refinement). **Misc** - `netstat-linux.ps1` – Linux netstat check (early draft, pending robustness).
 --- ## ️ Notes on Context Gathering - End-of-chat handoff blocks (✅ Summary / Context) → paste here. - Backfill from prior chats as needed. - This file = single source of truth across sessions. 2025-09-16 — WSFC Disk Correlation Script: 20250916194500 correlate-cluster-disks.ps1 (requires Windows PowerShell 5.x) Verified: Cluster Disk 1→E: SQLData, Disk 2→F: SQLLog, Disk 3→G: SQLBackup (NTFS, 64KB) Note: PS7 may not expose DiskIdGuid; use PS5.x for this script.
+
+# Runbook Checkpoint
+
+## Script ID: 20250917001000
+## Step: TempDB Local Path Warning
+**Description:** During SQL Server FCI setup, selecting a local path for TempDB (`C:\SQLTEMPDB`) generates a warning.  
+- This is **expected**.  
+- Requirement: Ensure the same path exists with correct ACLs (`lab.local\svc-sql` granted Modify) on **all cluster nodes**.  
+- Action: Click **Yes** to proceed.  
+
+![TempDB Warning](ac4ced6e-a20d-4ef9-a3c1-bdc34b1a3631.png)
+
+---
+
+## Step: Install Complete
+**Description:** SQL Server 2022 Failover Cluster Instance installation succeeded on SQLNODE3.  
+- Resource group created: `SQL FCI - Default`  
+- Disks E:, F:, G: now owned by the SQL FCI role  
+- Services (SQL Engine, Agent, Browser) installed under domain accounts  
+- Instance is ready for **post-install verification**  
+
+![Install Complete](1a4f8e6e-3b04-4126-ab63-c35d9107d91e.png)
+
+✅ **Checkpoint reached.** Safe to snapshot VM or mark LKGC (Last Known Good Config).
