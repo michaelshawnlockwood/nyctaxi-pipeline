@@ -1,11 +1,31 @@
-# Lab Context
+# Instructions for Use
+
+This `Context.md` file applies only to the **current active project**.  
+When starting a new chat, ChatGPT must:
+
+1. Read this file and limit its scope to the **project we are currently working on**.
+2. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
+3. Ignore sections from other projects unless explicitly told to reference them.  
+4. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom and any project-specific instructions before generating responses.  
+5. Stop and ask for clarification if there is any ambiguity about which project is active.
+
+# Wordclouds of Sorts
+
+This is the current project.  
+All instructions, rules, and outputs must be aligned with the goals of **Wordclouds of Sorts**.  
+Do not reference other projects (e.g., `nyctaxi-pipeline`) unless explicitly asked.  
+
+
+
+
+# WSFC Lab Context
 
 Central reference file for tracking the state of the lab environment, active issues, priorities, and script inventory.  
 Keep this updated at the end of each working session.
 
 ---
 
-## 🖥️ Lab State
+## 🖥️ WSFC Lab State
 
 - **SQLNODE1**  
   - Role: Domain Controller / DNS only  
@@ -94,7 +114,7 @@ Verified: Cluster Disk 1→E: SQLData, Disk 2→F: SQLLog, Disk 3→G: SQLBackup
 Note: PS7 may not expose DiskIdGuid; use PS5.x for this script.
 
 
-# Lab Context Central reference file for tracking the state of the lab environment, active issues, priorities, and script inventory. Keep this updated at the end of each working session.
+## WSFC Lab Context Central reference file for tracking the state of the lab environment, active issues, priorities, and script inventory. Keep this updated at the end of each working session.
 --- ## ️ Lab State - **SQLNODE1** - Role: Domain Controller / DNS only - Status: Domain healthy, DNS zone `lab.local` confirmed - Shares: Host shares reconnected via persistent drive mappings - Last snapshot: `LastKnownGoodConfig-share-attached` - **SQLNODE2** - Role: Domain-joined member server, clean pre-SQL - Status: Static IP configured, joined to `lab.local` - Last snapshot: Pending `Baseline-preSQL` - **SQLNODE3** - Role: Fresh clone from SQLNODE2 (export → import w/ new ID) - Status: Not yet joined to domain, needs IP and DNS verified - Last snapshot: Pending `Baseline-preSQL` --- ## Next Priorities 1.
 Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity with `ping`, `nslookup`, `nltest`. 3. Join SQLNODE3 to `lab.local` domain. 4. Snapshot both **SQLNODE2** and **SQLNODE3** as `Baseline-preSQL` once domain joined. 5. Prepare for SQL Server installation on SQLNODE2 and SQLNODE3. --- ## ⚠️ Open Issues - **Retry-on-bad-password mapping script**: misaligned with pseudocode. Shares working now, revisit if reusability matters.
 - **PS7 vs PS5 execution**: One script crash traced to running in PS7 on a VM. Need to standardize which runtime is expected. - **File shares visibility**: SQLNODE1 temporarily lost access until remapped. Working now but fragile if host IP/hostname shifts.
@@ -161,6 +181,7 @@ Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity
 ## 7) Ambiguity & Stop Word
 - If something is ambiguous, return **one clarifying question and stop**.  
 - If the user types **HARD STOP**, immediately stop output.
+
 
 
 
