@@ -8,8 +8,9 @@ When starting a new chat, ChatGPT must:
 3. Read this file and limit its scope to the **project we are currently working on**.
 4. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
 5. Ignore sections from other projects unless explicitly told to reference them.  
-6. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom and any project-specific instructions before generating responses.  
-7. Stop and ask for clarification if there is any ambiguity about which project is active.
+6. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom and any project-specific instructions before generating responses.
+7. Before producing any code blocks, we must first agree upon the pseudocode that comes first.
+8. Stop and ask for clarification if there is any ambiguity about which project is active.
 
 ---
 
@@ -218,6 +219,7 @@ Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity
 ## 7) Ambiguity & Stop Word
 - If something is ambiguous, return **one clarifying question and stop**.  
 - If the user types **HARD STOP**, immediately stop output.
+
 
 
 
