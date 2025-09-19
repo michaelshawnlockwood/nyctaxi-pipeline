@@ -23,6 +23,33 @@ When starting a new chat, ChatGPT must:
 - **Output discipline**: Preventing cluttered chats by enforcing single-block or text-only outputs per the rules.
 - **Context carryover**: Building the habit that ChatGPT reads `Context.md` at the start of every chat and applies only the active project section.
 
+## Next Steps
+
+- **Validate GeoJSON Export**
+  - Confirm exported file is a valid FeatureCollection.
+  - Check geometry types (Polygon or MultiPolygon) and coordinate order ([longitude, latitude]).
+  - Ensure required properties (`LocationID`, `zone`, `borough`) exist and `LocationID` values are unique.
+
+- **Establish a Baseline Map Render**
+  - Load the canonical `taxi_zones_4326.geojson` file.
+  - Verify that all zones display (even those with metric = 0).
+  - Do not add tooltips, legends, or styles until the base render is confirmed working.
+
+- **Context Discipline**
+  - Apply only the **Wordclouds of Sorts** section; ignore unrelated project notes.
+  - Re-read `Context.md` at the start of every new chat.
+  - Follow the Rules section strictly (single multi-page code block, no clutter, HARD STOP compliance).
+
+- **Documentation Hygiene**
+  - Keep file path, naming, and join key (`LocationID`) consistent across all notes and outputs.
+  - Update `Context.md` immediately when rules, file locations, or scope change.
+
+- **Future Enhancements (after baseline render)**
+  - Introduce tooltips with zone/borough/metric values.
+  - Add color scales for choropleth representation.
+  - Explore externalizing JS and styles only after baseline reliability is achieved.
+
+
 
 
 
@@ -189,6 +216,7 @@ Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity
 ## 7) Ambiguity & Stop Word
 - If something is ambiguous, return **one clarifying question and stop**.  
 - If the user types **HARD STOP**, immediately stop output.
+
 
 
 
