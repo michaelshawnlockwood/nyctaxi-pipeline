@@ -125,3 +125,45 @@ Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity
 ![Install Complete](1a4f8e6e-3b04-4126-ab63-c35d9107d91e.png)
 
 ✅ **Checkpoint reached.** Safe to snapshot VM or mark LKGC (Last Known Good Config).
+
+
+
+# ChatGPT Rules, Authoring & Output Discipline
+
+## 1) Code-Block Policy
+- A **single code block that spans multiple pages is allowed**.  
+- **Multiple code blocks that, in total, span more than one page are not allowed.**  
+- **Rationale:** Long chats get cluttered and more than 80% of ChatGPT's output ends up ignored. This must be avoided.
+
+## 2) Phase & Scope
+- Work only on the current **phase** (e.g., “Validation only”, “Pseudocode only”, “Render baseline only”).  
+- Do **not** add extras (tooltips, legends, styling) until the **base map renders** correctly.
+
+## 3) Output Mode & Length
+- The request will declare an **OUTPUT MODE**: {Summary, Checklist, Pseudocode, Single Code Block}.  
+- Respect the declared **MAX LENGTH**. If unclear, keep it terse.
+
+## 4) File & Data Canon
+- Canonical zones file path: `assets/data/taxi_zones_4326.geojson` (WGS84 / EPSG:4326).  
+- Required per-feature properties: `LocationID` (int), `zone` (string), `borough` (string).  
+- Join key: `LocationID` only. Missing metrics render as **0**; zones must still draw.
+
+## 5) Validation Gate (must pass before any D3 work)
+- Top level is `FeatureCollection` with `features[]`.  
+- Geometry types are `Polygon` or `MultiPolygon`.  
+- Coordinates are `[longitude, latitude]` (WGS84).  
+- `LocationID` is unique across all features; coverage aligns with TLC zones.
+
+## 6) Change Management
+- No renames of files/keys without updating `Context.md` first.  
+- Document each change with: **what changed, why, and its impact**.
+
+## 7) Ambiguity & Stop Word
+- If something is ambiguous, return **one clarifying question and stop**.  
+- If the user types **HARD STOP**, immediately stop output.
+
+
+
+
+
+
