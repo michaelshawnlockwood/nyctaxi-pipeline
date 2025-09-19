@@ -3,7 +3,8 @@
 This `Context.md` file applies only to the **current active project**.  
 When starting a new chat, ChatGPT must:
 
-1. Upon reading this file, do not rewrite any of its content in the current chat unless the content or content structure is being discussed. 
+1. Upon reading this file, do not rewrite any of its content in the current chat unless the content or content structure is being discussed.
+2. You may reiterate ***Current State*** and ***Next Steps*** of the **project we are currently working on**.
 3. Read this file and limit its scope to the **project we are currently working on**.
 4. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
 5. Ignore sections from other projects unless explicitly told to reference them.  
@@ -217,6 +218,7 @@ Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity
 ## 7) Ambiguity & Stop Word
 - If something is ambiguous, return **one clarifying question and stop**.  
 - If the user types **HARD STOP**, immediately stop output.
+
 
 
 
