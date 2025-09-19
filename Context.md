@@ -11,9 +11,17 @@ When starting a new chat, ChatGPT must:
 
 # Wordclouds of Sorts
 
-This is the current project.  
-All instructions, rules, and outputs must be aligned with the goals of **Wordclouds of Sorts**.  
-Do not reference other projects (e.g., `nyctaxi-pipeline`) unless explicitly asked.  
+## Achievements
+- Using PowerShell to write geoJSON file directly from SQL Server. 
+- Confirmed that the **GeoJSON structure** must be a FeatureCollection with Polygon or MultiPolygon geometries, not Point geometries.
+
+## Current Challenges
+
+- **Validation of exported GeoJSON**: Ensuring the PowerShell-exported file is structurally correct (FeatureCollection, geometry types, properties present, coordinate order).
+- **File naming discipline**: Avoiding filename thrash and enforcing the canonical file path in all references.
+- **Map rendering baseline**: Achieving a first working D3 map render (zones visible, no tooltips/legends yet).
+- **Output discipline**: Preventing cluttered chats by enforcing single-block or text-only outputs per the rules.
+- **Context carryover**: Building the habit that ChatGPT reads `Context.md` at the start of every chat and applies only the active project section.
 
 
 
@@ -181,6 +189,7 @@ Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity
 ## 7) Ambiguity & Stop Word
 - If something is ambiguous, return **one clarifying question and stop**.  
 - If the user types **HARD STOP**, immediately stop output.
+
 
 
 
