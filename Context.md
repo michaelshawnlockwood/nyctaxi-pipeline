@@ -11,6 +11,7 @@ When starting a new chat, ChatGPT must:
 6. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom and any project-specific instructions before generating responses.
 7. Before producing any code blocks, we must first agree upon the pseudocode that comes first.
 8. Stop and ask for clarification if there is any ambiguity about which project is active.
+9. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
 
 ---
 
@@ -220,14 +221,32 @@ Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity
 - If something is ambiguous, return **one clarifying question and stop**.  
 - If the user types **HARD STOP**, immediately stop output.
 
-
-
-
-
-
-
-
-
+# T-SQL Formatting & Coding Rules
+- Scope: Applies to all T-SQL in this project (views, inline TVFs, stored procedures, ad-hoc scripts).
+- Naming & Identifiers
+- Parameters: camelCase (e.g., @quadrant, @top, @tolerance).
+- Tables & Columns: PascalCase (e.g., [dbo].[TaxiZones].[LocationID]).
+- Schema Qualification & Brackets: Always schema-qualify and always bracket identifiers:
+[schema].[Object], [schema].[Object].[Column].
+- Object prefixes: pr_ for stored procedures, fn_ for functions (TVFs/UDFs).
+## Structure & Order
+- CTEs: Define in dependency order (e.g., base → geoms → rings → pts).
+- Do not reference a CTE/alias before it is defined.
+_ Explicit columns: Avoid SELECT *; list columns explicitly.
+- Deterministic output: The outermost query that feeds files/visuals must include a final ORDER BY.
+## Parameters & Sampling
+- @top as percent: @top is a percentage (0–100). If @top is NULL or <= 0, treat as 100 (full set). Use parentheses and PERCENT:
+```sql
+SELECT TOP (@top) PERCENT ...
+```
+## Procedure/Function Hygiene
+- SET NOCOUNT ON: Include in stored procedures.
+- Parameter normalization: Trim/normalize text params early (e.g., UPPER(LTRIM(RTRIM(@quadrant)))).
+- TVFs: Inline TVFs return data only; logging/side effects belong in stored procedures.
+## Formatting
+- Indentation: Use 2 spaces—be consistent within a file.
+- CTE readability: One CTE per block; put AS ( ... ) on its own lines.
+- Header comments: Each object starts with a brief header stating Purpose, Inputs, Outputs, and key Assumptions.NW: cx < centerX AND cy >= centerY
 
 
 
