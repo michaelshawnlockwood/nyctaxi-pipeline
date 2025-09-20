@@ -145,7 +145,7 @@ Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity
 
 ---
 
-# Wordclouds of Sorts
+# Word-clouds of Sorts
 
 ## Achievements
 - Using PowerShell to write geoJSON file directly from SQL Server. 
@@ -172,7 +172,7 @@ Verify **SQLNODE3** static IP, gateway, DNS → `SQLNODE1`. 2. Test connectivity
   - Do not add tooltips, legends, or styles until the base render is confirmed working.
 
 - **Context Discipline**
-  - Apply only the **Wordclouds of Sorts** section; ignore unrelated project notes.
+  - Apply only the **Word-clouds of Sorts** section; ignore unrelated project notes.
   - Re-read `Context.md` at the start of every new chat.
   - Follow the Rules section strictly (single multi-page code block, no clutter, HARD STOP compliance).
 
@@ -247,6 +247,7 @@ SELECT TOP (@top) PERCENT ...
 - Indentation: Use 2 spaces—be consistent within a file.
 - CTE readability: One CTE per block; put AS ( ... ) on its own lines.
 - Header comments: Each object starts with a brief header stating Purpose, Inputs, Outputs, and key Assumptions.NW: cx < centerX AND cy >= centerY
+
 
 
 
