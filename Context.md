@@ -257,9 +257,13 @@ We use a set of standardized keywords as visual "sticky tabs" to flag important 
 - **Sticky** *(future use)* — Any other marker we define going forward; can be added here with a clear definition.
 - **Guideline**: When writing notes, use these keywords consistently as the first bold word of a sentence or paragraph (e.g., `**Nuance**: A paused node is still a cluster member ...`). This makes it easier to parse later for documentation.
 
-
-
-
-
-
+## Script Header Template
+```powershell
+# Script ID: YYYYMMDDHHMMSS
+# Name: <descriptive-file-name>.ps1
+# Description: <what the script does>
+# Author: Michael S. Lockwood + ChatGPT
+# Created: YYYY-MM-DD
+# Notes: <execution notes>
+```
 
