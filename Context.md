@@ -248,6 +248,17 @@ SELECT TOP (@top) PERCENT ...
 - CTE readability: One CTE per block; put AS ( ... ) on its own lines.
 - Header comments: Each object starts with a brief header stating Purpose, Inputs, Outputs, and key Assumptions.NW: cx < centerX AND cy >= centerY
 
+## Keyword Tabs
+We use a set of standardized keywords as visual "sticky tabs" to flag important content within project notes, documentation, and blog drafts. These help us quickly scan, summarize, and extract highlights for future posts or technical write-ups.
+- **Nuance** — Subtle details, edge cases, or conditions that may be overlooked but are important for correct understanding or execution.  
+- **Note** — General reminders or clarifications that add context but are not critical instructions.  
+- **Important** — High-priority warnings, required steps, or essential knowledge that must not be skipped.  
+- **Boxit** — Code that has been tested and is ready to be saved for repeat use. Items to visually box or set apart in a future blog or doc layout (e.g., code caveats, tips, or special callouts). This includes scripts that are ready to be ID'd, saved and documented.  
+- **Sticky** *(future use)* — Any other marker we define going forward; can be added here with a clear definition.
+- **Guideline**: When writing notes, use these keywords consistently as the first bold word of a sentence or paragraph (e.g., `**Nuance**: A paused node is still a cluster member ...`). This makes it easier to parse later for documentation.
+
+
+
 
 
 
