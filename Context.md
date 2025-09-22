@@ -73,6 +73,27 @@ Keep this updated at the end of each working session.
 
 ---
 
+## Milestone – 2025-09-22: Firewall & Connectivity
+
+### Achievements
+- Confirmed dynamic SQL port assignment (`51433`) via registry and netstat.
+- Created inbound firewall rules on SQLNODE2 and SQLNODE3 for TCP 51433.
+- Applied **Script ID: 20250922163500** to expand firewall scope to `Profile=Any`, ensuring host (10.10.20.1) connectivity.
+- Applied the same script on the host laptop for outbound allowance.
+- Verified connectivity with `Test-NetConnection 10.10.20.25 -Port 51433`.
+- Successful first SSMS connection from host to SQL FCI using `10.10.20.25,51433`.
+
+### Script References
+- **20250922160000** – `add-sql-firewall-rule.ps1`
+- **20250922163500** – `set-sql-firewall-profile-any.ps1`
+
+### Next Steps
+1. Document this milestone in lab journal and confirm entries are indexed in Context.md.
+2. Perform a controlled failover to SQLNODE3; retest host connection to validate cross-node consistency.
+3. Prepare data ingestion into SQL FCI for workload and failover validation.
+
+---
+
 ## 📜 Scripts Inventory
 
 **Admin / VM Management**
@@ -266,4 +287,5 @@ We use a set of standardized keywords as visual "sticky tabs" to flag important 
 # Created: YYYY-MM-DD
 # Notes: <execution notes>
 ```
+
 
