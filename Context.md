@@ -319,11 +319,11 @@ Purpose:
 
 ## SANE Template
 ### SANE — [Topic/Phase]
-**Achievements & Milestones ✅**
+### Achievements & Milestones ✅
 - ✅ <milestone 1>
 - ✅ <milestone 2>
 
-### 📝 Status Checklist
+#### 📝 Status Checklist
 **Completed**
 - [x] <completed task 1>
 - [x] <completed task 2>
@@ -332,9 +332,13 @@ Purpose:
 - [#] <Script ID 987654321>
 - [#] <Script ID 987654322>
 
-**Next steps**
+### Next steps**
 - [ ] <next step 1>
 - [ ] <next step 2>
+
+### 📖 Evaluation
+- Observations, issues encountered, or lessons learned.  
+- Example: “CU installation was smooth; however, SQLNODE2 required a manual reboot to complete patching.”  
 
 
 
