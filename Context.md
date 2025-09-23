@@ -304,12 +304,26 @@ We use a set of standardized keywords as visual "sticky tabs" to flag important 
   - Include evidence when helpful (Script ID, screenshot ref, or build number).
   - Keep each section tight: **5–10 bullets max**.
 
-## End of Chat Summary Template
+# SANE Sections
+Definition:
+SANE = Summary of Achievements, Next steps, and Evaluation
+
+Every chat should conclude with a SANE section. This ensures project progress is captured, validated, and ready to carry forward. A SANE combines milestones achieved, items completed, pending next steps, and any evaluation/notes for context.
+
+Purpose:
+- Maintain consistent project state across chats.
+- Provide clear traceability for actions, validations, and checkpoints.
+- Reduce redundancy by carrying forward only the SANE from the prior chat.
+
+**Example Structure:**
+
+## SANE Template
+### SANE — [Topic/Phase]
 **Achievements & Milestones ✅**
 - ✅ <milestone 1>
 - ✅ <milestone 2>
 
-**Status Checklist**
+### 📝 Status Checklist
 **Completed**
 - [x] <completed task 1>
 - [x] <completed task 2>
@@ -321,8 +335,6 @@ We use a set of standardized keywords as visual "sticky tabs" to flag important 
 **Next steps**
 - [ ] <next step 1>
 - [ ] <next step 2>
-
-
 
 
 
