@@ -9,8 +9,8 @@ When starting a new chat, ChatGPT must:
 4. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
 5. Ignore sections from other projects unless explicitly told to reference them.  
 6. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom and any project-specific instructions before generating responses.
-7. Before producing any code blocks, we must first agree upon the pseudocode that comes first.
-8. Stop and ask for clarification if there is any ambiguity about which project is active.
+7. Before producing any code blocks, we must first agree upon the pseudocode that explains what we are intending to achieve or problem we are solving.
+8. Stop and ask for clarification if there is any ambiguity about which project is active and what step we are focused on.
 9. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
 
 ---
@@ -287,5 +287,43 @@ We use a set of standardized keywords as visual "sticky tabs" to flag important 
 # Created: YYYY-MM-DD
 # Notes: <execution notes>
 ```
+
+## Status & Milestone Notation
+
+- Use the **green box with white checkmark** emoji for accomplishments: `✅`.
+- Use **GitHub-style checklists** for task status:
+  - Completed items: `- [x] <task>`
+  - Next steps / not done: `- [ ] <task>`
+- Do **not** mix emojis inside checkboxes—use `✅` only for milestones, and `[x]/[ ]` only for task lists.
+- Order of sections in updates:
+  1) **Achievements & Milestones ✅** — concise, outcome-focused bullets.
+  2) **Status Checklist** — split into **Completed** and **Next steps**.
+- Style rules:
+  - Start bullets with strong verbs (“Moved,” “Installed,” “Validated,” “Snapshotted”).
+  - Name nodes/resources explicitly (e.g., **SQLNODE2**, **SQLNODE3**, **SQL FCI – Default**, **Cluster Disk 1**).
+  - Include evidence when helpful (Script ID, screenshot ref, or build number).
+  - Keep each section tight: **5–10 bullets max**.
+
+## End of Chat Summary Template
+**Achievements & Milestones ✅**
+- ✅ <milestone 1>
+- ✅ <milestone 2>
+
+**Status Checklist**
+**Completed**
+- [x] <completed task 1>
+- [x] <completed task 2>
+
+**Script References by ID**
+- [#] <Script ID 987654321>
+- [#] <Script ID 987654322>
+
+**Next steps**
+- [ ] <next step 1>
+- [ ] <next step 2>
+
+
+
+
 
 
