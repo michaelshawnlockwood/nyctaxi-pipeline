@@ -353,16 +353,19 @@ Purpose:
   a single space between [ColumnName] and the comma that follows (i.e. [ColumnName] ,),  
   use tabs or spacing equivalent to 4 spaces for subsequent columns, not for joins - see example.  
   Example:
+  ```sql
   DECLARE @param varchar(40)  
   SELECT [Column1] ,  
       [Column2] ,  
       [Column3]  
   FROM [schema].[TableOne] AS t1  
       JOING [schema].[TableTwo] AS t2  
-          ON t1.[ColumnK] = t2.[ColumnK]  
+          ON t1.[ColumnK] = t2.[ColumnK]
+  ```  
   WHERE t2.[ColumnL] = @param  
   - Note that this will be expanded if code blocks begin to drift in terms of formatting.
   - End of Section  
+
 
 
 
