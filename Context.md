@@ -15,6 +15,7 @@ When starting a new chat, ChatGPT must:
 10. At the bottom, read these sections carefully: 1) Status &amp; Milestone Notation, and 2) SANE Sections.
 11. Review the prior chat, locate the SANE section(s) that summarize the achievements, milestones, next steps, etc. of the progress made in the chat session at the bottom of the chat session, and rewrite the SANE sections that apply to the chat session here at the top, which is our new starting point, in clean Markdown following the Context.md conventions (✅ for milestones, [x]/[ ] for checklists, Script References if applicable). Do not summarize or generalize — bring forward the exact section from that chat, cleaned and formatted consistently.
 12. If we are not in a project, there is no prior chat to re-state the SANE sections. There is no prior SANE to carry forward.
+13. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
 
 ---
 
@@ -343,7 +344,25 @@ Purpose:
 - Observations, issues encountered, or lessons learned.  
 - Example: “CU installation was smooth; however, SQLNODE2 required a manual reboot to complete patching.”  
 
-
+## T-SQL Structure and Formatting  
+- Use PascalCase for table and column names.  
+- Use camelCase for schema names, which are always one word anyway.  
+- Use camelCase for parameters, both input and output.  
+- Enclose schema, table and column names in square brackets (i.e. [schema].[table].[column).  
+- Please the first column on the same line as the "SELECT" in SELECT statements (i.e. SELECT [ColumnName]),  
+  a single space between [ColumnName] and the comma that follows (i.e. [ColumnName] ,),  
+  use tabs or spacing equivalent to 4 spaces for subsequent columns, not for joins - see example.  
+  Example:
+  DECLARE @param varchar(40)  
+  SELECT [Column1] ,  
+      [Column2] ,  
+      [Column3]  
+  FROM [schema].[TableOne] AS t1  
+      JOING [schema].[TableTwo] AS t2  
+          ON t1.[ColumnK] = t2.[ColumnK]  
+  WHERE t2.[ColumnL] = @param  
+  - Note that this will be expanded if code blocks begin to drift in terms of formatting.
+  - End of Section  
 
 
 
