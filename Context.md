@@ -12,6 +12,7 @@ When starting a new chat, ChatGPT must:
 7. Before producing any code blocks, we must first agree upon the pseudocode that explains what we are intending to achieve or problem we are solving.
 8. Stop and ask for clarification if there is any ambiguity about which project is active and what step we are focused on.
 9. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
+10. At the bottom, read these sections carefully: 1) Status &amp; Milestone Notation, and 2) SANE Sections.
 
 ---
 
@@ -288,7 +289,7 @@ We use a set of standardized keywords as visual "sticky tabs" to flag important 
 # Notes: <execution notes>
 ```
 
-## Status & Milestone Notation
+# Status & Milestone Notation
 
 - Use the **green box with white checkmark** emoji for accomplishments: `✅`.
 - Use **GitHub-style checklists** for task status:
@@ -339,6 +340,7 @@ Purpose:
 ### 📖 Evaluation
 - Observations, issues encountered, or lessons learned.  
 - Example: “CU installation was smooth; however, SQLNODE2 required a manual reboot to complete patching.”  
+
 
 
 
