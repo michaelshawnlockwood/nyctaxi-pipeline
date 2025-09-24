@@ -340,6 +340,8 @@ Purpose:
 - [ ] <next step 1>
 - [ ] <next step 2>
 
+### Find the Backlog Worksheet and keep it current, maintaining all items, complete and incomplete.
+
 ### 📖 Evaluation
 - Observations, issues encountered, or lessons learned.  
 - Example: “CU installation was smooth; however, SQLNODE2 required a manual reboot to complete patching.”  
@@ -365,6 +367,7 @@ Purpose:
   WHERE t2.[ColumnL] = @param  
   - Note that this will be expanded if code blocks begin to drift in terms of formatting.
   - End of Section  
+
 
 
 
