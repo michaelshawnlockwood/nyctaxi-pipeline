@@ -16,8 +16,9 @@ When starting a new chat, ChatGPT must:
 11. Review the prior chat, locate the SANE section(s) that summarize the achievements, milestones, next steps, etc. of the progress made in the chat session at the bottom of the chat session, and rewrite the SANE sections that apply to the chat session here at the top, which is our new starting point, in clean Markdown following the Context.md conventions (✅ for milestones, [x]/[ ] for checklists, Script References if applicable). Do not summarize or generalize — bring forward the exact section from that chat, cleaned and formatted consistently.  
 12. Always rewrite the entire SANE section verbatim in structure (Summary → Achievements & Milestones → Completed Steps → Next Steps → Evaluation). Do not summarize.  
 13. Preserve the formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md.  
-14. If we are not in a project, there is no prior chat to re-state the SANE sections. There is no prior SANE to carry forward.  
-15. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
+14. If we are not in a project, there is no prior chat to re-state the SANE sections. There is no prior SANE to carry forward.
+15. Restamp the SANE section from the prior chat at the top of this chat, in full, following Context.md conventions.  
+16. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
 
 ---
 
@@ -369,6 +370,7 @@ Purpose:
   WHERE t2.[ColumnL] = @param  
   - Note that this will be expanded if code blocks begin to drift in terms of formatting.
   - End of Section  
+
 
 
 
