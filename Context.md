@@ -1,6 +1,6 @@
 # Instruction 0. — Mandatory Rule: Before proceeding, read and apply all numbered instructions in this file, in full, in the order listed.
 # instructions:
-1. Restamp the SANE section verbatim located at the bottom of the prior chat using Markdown in a code block following these conventions: ✅ for milestones, [x]/[ ] for checklists, Script References if applicable. Do not summarize or generalize — bring forward the exact SANE section from the prior chat.  
+1. Restamp and reconstruct the SANE section verbatim located at the bottom of the prior chat using Markdown following these conventions: ✅ for milestones, [x]/[ ] for checklists, Script References if applicable. Do not summarize or generalize — bring forward the exact SANE section from the prior chat.  
 2. Do not rewrite any of this file's content in the current chat unless explicitly asked to do so.
 3. Read this entire file and limit the scope of the current chat session to the **project we are currently working on**.
 4. Preserve formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md.  
@@ -361,6 +361,7 @@ Purpose:
   WHERE t2.[ColumnL] = @param  
   - Note that this will be expanded if code blocks begin to drift in terms of formatting.
   - End of Section  
+
 
 
 
