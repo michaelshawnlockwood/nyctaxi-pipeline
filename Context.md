@@ -3,20 +3,19 @@
 This `Context.md` file applies only to the **current active project**.  
 When starting a new chat, ChatGPT must:
 
-1. Upon reading this file, do not rewrite any of its content in the current chat unless the content or content structure is being discussed.
-2. You may reiterate ***Current State*** and ***Next Steps*** of the **project we are currently working on**.
-3. Read this file and limit its scope to the **project we are currently working on**.
-4. Review the prior chat, locate the SANE section(s) that summarize the achievements, milestones, next steps, etc. of the progress made in the prior chat session at the bottom of that chat session, and rewrite the SANE sections verbatim here at the top of this new chat session, which is our new starting point, in clean Markdown following the Context.md conventions (✅ for milestones, [x]/[ ] for checklists, Script References if applicable). Do not summarize or generalize — bring forward the exact section from that chat, cleaned and formatted consistently.
-5. At the bottom, read these sections carefully: 1) Status &amp; Milestone Notation, and 2) SANE Sections. Restamp the SANE section from the prior chat at the top of this chat verbatim, in full, following Context.md conventions. Always rewrite the entire SANE section verbatim in structure (Summary → Achievements & Milestones → Completed Steps → Next Steps → Evaluation). Do not summarize.
-6. Preserve formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md.  
-7. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
-8. Ignore sections from other projects unless explicitly told to reference them.  
-9. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom and any project-specific instructions before generating responses.
-10. Before producing any code blocks, we must first agree upon the pseudocode that explains what we are intending to achieve or problem we are solving.
-11. Stop and ask for clarification if there is any ambiguity about which project is active and what step we are focused on.
-12. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
-13. If we are not in a project, there is no prior chat to re-state the SANE sections. There is no prior SANE to carry forward.
-14. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
+Instruction 0. — Mandatory Rule: Before proceeding, read and apply all numbered instructions in this file, in full, in the order listed.
+1. Do not rewrite any of this file's content in the current chat unless explicitly asked to do so.
+2. Reiterate ***Current State*** and ***Next Steps*** of the **project we are currently working on**.
+3. Read this entire file and limit the scope of the current chat session to the **project we are currently working on**.
+4. Review the prior chat, locate the SANE section(s) that summarize achievements, milestones, next steps, and evaluation in the prior chat session at the bottom of that chat session, and restamp the SANE section verbatim here at the top of this new chat session, which is our new starting point, using Markdown in a code block following these conventions: ✅ for milestones, [x]/[ ] for checklists, Script References if applicable. Do not summarize or generalize — bring forward the exact SANE section from the prior chat.
+5. Preserve formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md.  
+6. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
+7. Ignore sections from other projects unless explicitly told to reference them.  
+8. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom of this document and any project-specific instructions when generating responses.
+9. Before producing any code blocks, we must first agree upon the pseudocode that explains what we are intending to achieve or problem we are solving.
+10. Stop and ask for clarification if there is any ambiguity about which project is active and what step we are focused on.
+11. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
+12. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
 ---
 
 # WSFC Lab Context
@@ -367,6 +366,7 @@ Purpose:
   WHERE t2.[ColumnL] = @param  
   - Note that this will be expanded if code blocks begin to drift in terms of formatting.
   - End of Section  
+
 
 
 
