@@ -4,18 +4,17 @@ This `Context.md` file applies only to the **current active project**.
 When starting a new chat, ChatGPT must:
 
 Instruction 0. — Mandatory Rule: Before proceeding, read and apply all numbered instructions in this file, in full, in the order listed.
-1. Do not rewrite any of this file's content in the current chat unless explicitly asked to do so.
-2. Reiterate ***Current State*** and ***Next Steps*** of the **project we are currently working on**.
+1. Restamp the SANE section verbatim located at the bottom of the prior chat using Markdown in a code block following these conventions: ✅ for milestones, [x]/[ ] for checklists, Script References if applicable. Do not summarize or generalize — bring forward the exact SANE section from the prior chat.  
+2. Do not rewrite any of this file's content in the current chat unless explicitly asked to do so.
 3. Read this entire file and limit the scope of the current chat session to the **project we are currently working on**.
-4. Review the prior chat, locate the SANE section(s) that summarize achievements, milestones, next steps, and evaluation in the prior chat session at the bottom of that chat session, and restamp the SANE section verbatim here at the top of this new chat session, which is our new starting point, using Markdown in a code block following these conventions: ✅ for milestones, [x]/[ ] for checklists, Script References if applicable. Do not summarize or generalize — bring forward the exact SANE section from the prior chat.
-5. Preserve formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md.  
-6. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
-7. Ignore sections from other projects unless explicitly told to reference them.  
-8. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom of this document and any project-specific instructions when generating responses.
-9. Before producing any code blocks, we must first agree upon the pseudocode that explains what we are intending to achieve or problem we are solving.
-10. Stop and ask for clarification if there is any ambiguity about which project is active and what step we are focused on.
-11. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
-12. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
+4. Preserve formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md.  
+5. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
+6. Ignore sections from other projects unless explicitly told to reference them.  
+7. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom of this document and any project-specific instructions when generating responses.
+8. Before producing any code blocks, we must first agree upon the pseudocode that explains what we are intending to achieve or problem we are solving.
+9. Stop and ask for clarification if there is any ambiguity about which project is active and what step we are focused on.
+10. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
+11. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
 ---
 
 # WSFC Lab Context
@@ -366,6 +365,7 @@ Purpose:
   WHERE t2.[ColumnL] = @param  
   - Note that this will be expanded if code blocks begin to drift in terms of formatting.
   - End of Section  
+
 
 
 
