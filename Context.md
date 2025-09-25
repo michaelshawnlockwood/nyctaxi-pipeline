@@ -1,8 +1,3 @@
-# Instructions for Use
-
-This `Context.md` file applies only to the **current active project**.  
-When starting a new chat, ChatGPT must:
-
 # Instruction 0. — Mandatory Rule: Before proceeding, read and apply all numbered instructions in this file, in full, in the order listed.
 # instructions:
 1. Restamp the SANE section verbatim located at the bottom of the prior chat using Markdown in a code block following these conventions: ✅ for milestones, [x]/[ ] for checklists, Script References if applicable. Do not summarize or generalize — bring forward the exact SANE section from the prior chat.  
@@ -366,6 +361,7 @@ Purpose:
   WHERE t2.[ColumnL] = @param  
   - Note that this will be expanded if code blocks begin to drift in terms of formatting.
   - End of Section  
+
 
 
 
