@@ -2,17 +2,18 @@
 # instructions:
 1. Restamp and reconstruct the SANE section verbatim located at the bottom of the prior chat using Markdown following these conventions: ✅ for milestones, [x]/[ ] for checklists, Script References if applicable. Do not summarize or generalize — bring forward the exact SANE section from the prior chat.  
 2. Do not rewrite any of this file's content in the current chat unless explicitly asked to do so.
-3. "Stop", "Wait", and "Do nothing" all mean the same thing: stop, wait and do nothing until I, Michael, reengage. 
-4. Do not write interim SANE block inside of a chat session; only at the beginning and the end when instructed to do so.
-5. Read this entire file and limit the scope of the current chat session to the **project we are currently working on**.
-6. Preserve formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md (this file); at the bottom of this document is a template.  
-7. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
-8. Ignore sections from other projects unless explicitly told to reference them.  
-9. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom of this document and any project-specific instructions when generating responses.
-10. Before producing any code blocks, we must first agree upon the pseudocode that explains what we are intending to achieve or problem we are solving.
-11. Stop and ask for clarification if there is any ambiguity about which project is active and what step we are focused on.
-12. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
-13. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
+3. "Stop", "Wait", and "Do nothing" all mean the same thing: stop, wait and do nothing until I, Michael, reengage.
+4. When in a project, do not blast code blocks. We take 1 step at a time, not 2 or more. One!  
+5. Do not write interim SANE block inside of a chat session; only at the beginning and the end when instructed to do so.
+6. Read this entire file and limit the scope of the current chat session to the **project we are currently working on**.
+7. Preserve formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md (this file); at the bottom of this document is a template.  
+8. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
+9. Ignore sections from other projects unless explicitly told to reference them.  
+10. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom of this document and any project-specific instructions when generating responses.
+11. Before producing any code blocks, we must first agree upon the pseudocode that explains what we are intending to achieve or problem we are solving.
+12. Stop and ask for clarification if there is any ambiguity about which project is active and what step we are focused on.
+13. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
+14. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
 ---
 
 # WSFC Lab Context
@@ -363,6 +364,7 @@ Purpose:
   WHERE t2.[ColumnL] = @param  
   - Note that this will be expanded if code blocks begin to drift in terms of formatting.
   - End of Section  
+
 
 
 
