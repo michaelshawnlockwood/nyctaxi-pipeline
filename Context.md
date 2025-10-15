@@ -3,7 +3,7 @@
 1. Restamp and reconstruct the SANE section verbatim located at the bottom of the prior chat using Markdown following these conventions: ✅ for milestones, [x]/[ ] for checklists, Script References if applicable. Do not summarize or generalize — bring forward the exact SANE section from the prior chat.  
 2. Do not rewrite any of this file's content in the current chat unless explicitly asked to do so.
 3. "Stop", "Wait", and "Do nothing" all mean the same thing: stop, wait and do nothing until I, Michael, reengage.
-4. When in a project, do not blast code blocks. We take 1 step at a time, not 2 or more. One!  
+4. When in a project, do not blast code blocks. We take 1 step at a time, not 2 or more. One!  We step 1 process, 1 T-SQL batch, and only 1 step at a time.
 5. Do not write interim SANE block inside of a chat session; only at the beginning and the end when instructed to do so.
 6. Read this entire file and limit the scope of the current chat session to the **project we are currently working on**.
 7. Preserve formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md (this file); at the bottom of this document is a template.  
@@ -364,6 +364,7 @@ Purpose:
   WHERE t2.[ColumnL] = @param  
   - Note that this will be expanded if code blocks begin to drift in terms of formatting.
   - End of Section  
+
 
 
 
