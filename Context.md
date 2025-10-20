@@ -6,14 +6,15 @@
 4. When in a project, do not blast code blocks. We take 1 step at a time, not 2 or more. One!  We step 1 process, 1 T-SQL batch, and only 1 step at a time.
 5. Do not write interim SANE block inside of a chat session; only at the beginning and the end when instructed to do so.
 6. Read this entire file and limit the scope of the current chat session to the **project we are currently working on**.
-7. Preserve formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md (this file); at the bottom of this document is a template.  
-8. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
-9. Ignore sections from other projects unless explicitly told to reference them.  
-10. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom of this document and any project-specific instructions when generating responses.
-11. Before producing any code blocks, we must first agree upon the pseudocode that explains what we are intending to achieve or problem we are solving.
-12. Stop and ask for clarification if there is any ambiguity about which project is active and what step we are focused on.
-13. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
-14. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
+7. Read this section, MinIO HTTPS Success Checkpoint (Confirmed), for rootCA.pem location.
+8. Preserve formatting (✅ milestones, [x]/[ ] checklists, etc.) exactly as defined in Context.md (this file); at the bottom of this document is a template.  
+9. Top-level headings (i.e. # WSFC Lab Context) mark the start of project sections, which end with a different project's top-level heading.
+10. Ignore sections from other projects unless explicitly told to reference them.  
+11. Always apply the **ChatGPT Rules, Authoring & Output Discipline** section located at the bottom of this document and any project-specific instructions when generating responses.
+12. Before producing any code blocks, we must first agree upon the pseudocode that explains what we are intending to achieve or problem we are solving.
+13. Stop and ask for clarification if there is any ambiguity about which project is active and what step we are focused on.
+14. When analyzing, editing or writing T-SQL, review the ***T-SQL Formatting and Coding Rules*** below.
+15. When writing code, T-SQL in particular, see the T-SQL Structure and Formatting rules.
 ---
 
 # WSFC Lab Context
@@ -40,6 +41,26 @@ Keep this updated at the end of each working session.
   - Role: Fresh clone from SQLNODE2 (export → import w/ new ID)  
   - Status: Not yet joined to domain, needs IP and DNS verified  
   - Last snapshot: Pending `Baseline-preSQL`
+
+---
+
+---
+
+### ✅ MinIO HTTPS Success Checkpoint (Confirmed)
+
+**Date:** 2025-10-19  
+**Host:** MSL-Laptop  
+**Environment:** Local Windows / mkcert-signed TLS
+
+**Status:** ✅ Verified working over HTTPS via s3fs + Delta-RS
+
+| Component | Value |
+|------------|-------|
+| **Endpoint** | `https://127.0.0.1:9010` |
+| **Console (UI)** | `https://127.0.0.1:9011` |
+| **CA Root Path** | `C:\Users\micha\AppData\Local\mkcert\rootCA.pem` |
+| **Certificate Pair in Use** | `C:\Users\micha\.minio\certs\127.0.0.1+1.pem` / `127.0.0.1+1-key.pem` |
+| **Environment Variables** | <br>`AWS_ENDPOINT_URL=https://127.0.0.1:9010`<br>`AWS_CA_BUNDLE=C:\Users\micha\AppData\Local\mkcert\rootCA.pem`<br>`AWS_S3_FORCE_PATH_STYLE=1`<
 
 ---
 
@@ -364,6 +385,7 @@ Purpose:
   WHERE t2.[ColumnL] = @param  
   - Note that this will be expanded if code blocks begin to drift in terms of formatting.
   - End of Section  
+
 
 
 
