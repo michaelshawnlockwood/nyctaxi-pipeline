@@ -2,11 +2,15 @@
 import argparse
 from pathlib import Path
 import duckdb
-import pandas as pd
 
 parser = argparse.ArgumentParser(description="Validate a Parquet file and produce schema/profile/preview reports.")
 parser.add_argument("src", help="Path to the Parquet file to validate")
 parser.add_argument("--rows", type=int, default=100, help="Number of preview rows to save (default: 100)")
+parser.add_argument(
+        "--out-dir",
+        default=None,
+        help="Directory where schema/profile/preview reports should be written"
+    )
 args = parser.parse_args()
 
 # --- normalize path & existence check ---
@@ -16,13 +20,14 @@ if not src_path.exists():
 
 SRC = str(src_path).replace("\\", "/")  # DuckDB likes forward slashes
 PREVIEW_ROWS = args.rows
-out_dir = src_path.parent
-out_base = out_dir / src_path.stem  # e.g., yellow_tripdata_2024-01
+out_dir = Path(args.out_dir).resolve() if args.out_dir else src_path.parent
+out_dir.mkdir(parents=True, exist_ok=True)
+out_base = out_dir / src_path.stem  # e.g., yellow_tripdata_2026-05
 
-con = duckdb.connect()
+conn = duckdb.connect()
 
 # --- 1) Schema (order, names, types) ---
-schema_df = con.sql(f"DESCRIBE SELECT * FROM read_parquet('{SRC}')").df()
+schema_df = conn.sql(f"DESCRIBE SELECT * FROM read_parquet('{SRC}')").df()
 # schema_df has columns like: column_name, column_type, null, key, default, extra
 
 lines = []
@@ -59,18 +64,31 @@ SELECT
 FROM src;
 """
 
-profile_df = con.sql(profile_sql).df().T
+profile_df = conn.sql(profile_sql).df().T
 profile_df.columns = ["value"]
 profile_path = out_base.with_suffix("").as_posix() + "_profile.csv"
 profile_df.to_csv(profile_path, encoding="utf-8")
 
 # --- 3) Preview sample (true columns, no wrapping) ---
-preview_df = con.sql(f"SELECT * FROM read_parquet('{SRC}') LIMIT {PREVIEW_ROWS}").df()
+preview_df = conn.sql(f"SELECT * FROM read_parquet('{SRC}') LIMIT {PREVIEW_ROWS}").df()
 preview_path = out_base.with_suffix("").as_posix() + "_preview.csv"
 preview_df.to_csv(preview_path, index=False, encoding="utf-8")
 
 # --- 4) Rowcount echo ---
-rowcount = int(con.sql(f"SELECT COUNT(*) FROM read_parquet('{SRC}')").fetchone()[0])
+# This chain is not acceptable: 
+# rowcount = int(conn.sql(f"SELECT COUNT(*) FROM read_parquet('{SRC}')").fetchone()[0])
+result = conn.sql(
+    f"SELECT COUNT(*) FROM read_parquet('{SRC}')"
+).fetchone()
+
+if result is None:
+    raise RuntimeError(f"Unable to count rows in: {src_path}")
+
+rowcount = int(result[0])
+
+# Or, an alternative using assert:
+# assert rowcount is not None
+# rowcount = int(rowcount[0])
 
 print("=== DONE ===")
 print(f"Schema:  {schema_path}")
