@@ -18,7 +18,21 @@ def build_dictionary(psv_path: Path, out_override: Path | None):
     SRC = to_posix(p)
     con = duckdb.connect()
 
-    READ = f"read_csv('{SRC}', delim='|', header=True, quote='\"', escape='\"')"
+    # Read the source file (PSV or Parquet)
+    extension = p.suffix.lower()
+
+    if extension == ".parquet":
+        READ = f"read_parquet('{SRC}')"
+    elif extension == ".psv":
+        READ = (
+            f"read_csv('{SRC}', delim='|', "
+            f"header=True, quote='\"', escape='\"')"
+        )
+    else:
+        raise ValueError(
+            f"Unsupported file format: {extension or '[no extension]'}. "
+            "Supported formats are .parquet and .psv."
+        )
 
     # Schema
     schema_df = con.sql(f"DESCRIBE SELECT * FROM {READ}").df()
@@ -75,10 +89,10 @@ def build_dictionary(psv_path: Path, out_override: Path | None):
         print(f"Data dictionary written (CSV only):\n- {out_csv}\nInstall 'tabulate' to also generate Markdown.")
 
 def main():
-    ap = argparse.ArgumentParser(description="Generate a unified data dictionary from a PSV file.")
-    ap.add_argument("src", help="Path to a PSV file")
+    ap = argparse.ArgumentParser(description="Generate a unified data dictionary from a Parquet or PSV file.")
+    ap.add_argument("src", help="Path to a Parquet or PSV file")
     ap.add_argument("--out", help="Output base path or directory (omit extension). "
-                                  "Default: <src-stem>.dictionary next to the input file.")
+                                  "Default: <src-stem>._dictionary next to the input file.")
     args = ap.parse_args()
 
     psv_file = Path(args.src).resolve()
