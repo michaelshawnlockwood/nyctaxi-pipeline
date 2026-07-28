@@ -1,0 +1,9 @@
+[outputs]
+execution_log = "pydantic_validation.log"
+event_log = "validation_event_log.jsonl"
+progress = "validation_progress.jsonl"
+errors = "validation_errors.jsonl"
+summary = "validation_summary.jsonl"
+
+[control]
+stop_request = "validation_stop_request"
