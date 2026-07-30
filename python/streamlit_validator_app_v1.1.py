@@ -19,10 +19,17 @@ validation_control_page = st.Page(
     icon="▶️",
 )
 
+validation_analytics_page = st.Page(
+    "validator_pages/validation_analytics.py",
+    title="Validation Analytics",
+    icon="▶️",
+)
+
 navigation = st.navigation(
     [
         file_inspection_page,
         validation_control_page,
+        validation_analytics_page,
     ]
 )
 
