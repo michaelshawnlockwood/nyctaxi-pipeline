@@ -25,11 +25,18 @@ validation_analytics_page = st.Page(
     icon="▶️",
 )
 
+trip_analytics_page = st.Page(
+    "validator_pages/trip_analytics.py",
+    title="NYC Taxi Trip Analytics",
+    icon="▶️",
+)
+
 navigation = st.navigation(
     [
         file_inspection_page,
         validation_control_page,
         validation_analytics_page,
+        trip_analytics_page
     ]
 )
 

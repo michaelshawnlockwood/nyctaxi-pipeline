@@ -91,27 +91,33 @@ default_data_out = "./data_out"
 
 source_directory, output_directory = st.columns(2)
 
-source_directory = st.text_input(
-    "Source directory",
-    value=default_data_in,
-)
+with source_directory:
+    source_directory = st.text_input(
+        "Source directory",
+        value=default_data_in,
+    )
 
-output_directory = st.text_input(
-    "Output directory",
-    value=default_data_out,
-)
+with output_directory:
+    output_directory = st.text_input(
+        "Output directory",
+        value=default_data_out,
+    )
 
-extension = st.text_input(
-    "File extension",
-    value=".parquet",
-)
+extension_col, batch_size_col = st.columns(2)
 
-batch_size = st.number_input(
-    "Batch size",
-    min_value=1,
-    value=50_000,
-    step=10_000,
-)
+with extension_col:
+    extension = st.text_input(
+        "File extension",
+        value=".parquet",
+    )
+
+with batch_size_col:
+    batch_size = st.number_input(
+        "Batch size",
+        min_value=1,
+        value=50_000,
+        step=10_000,
+    )
 
 data_in = Path(source_directory).expanduser().resolve()
 data_out = Path(output_directory).expanduser().resolve()
