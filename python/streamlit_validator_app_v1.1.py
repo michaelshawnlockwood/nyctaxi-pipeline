@@ -15,7 +15,7 @@ file_inspection_page = st.Page(
 
 validation_control_page = st.Page(
     "validator_pages/validation_control.py",
-    title="Validation Control",
+    title="Validation Controls",
     icon="▶️",
 )
 

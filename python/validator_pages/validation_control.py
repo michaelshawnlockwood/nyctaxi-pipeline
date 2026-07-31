@@ -81,7 +81,7 @@ def read_event_records(
 
 config = load_config(CONFIG_PATH)
 
-st.title("Validation Control")
+st.title("Validation Controls")
 st.write(
     "Configure, launch, stop, and observe model validation."
 )
