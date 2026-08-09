@@ -2,7 +2,7 @@ import ast
 from pathlib import Path
 
 
-source_path = Path("validate_file_against_pydantic_model.py")
+source_path = Path("pydantic_model_validator_v1.1.py")
 source_text = source_path.read_text(encoding="utf-8")
 tree = ast.parse(source_text)
 
