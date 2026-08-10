@@ -1,4 +1,5 @@
-version: 2
+# bronze.yml
+version: 1
 
 sources:
   - name: bronze
